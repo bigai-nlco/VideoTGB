@@ -1,3 +1,12 @@
+# projects
+inputs/
+logs/
+slurm_logs/
+ckpts/
+# demo/examples/
+temp/
+jupyter*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

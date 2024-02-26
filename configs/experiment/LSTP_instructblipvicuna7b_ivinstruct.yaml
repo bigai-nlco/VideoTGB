@@ -1,0 +1,54 @@
+# @package _global_
+
+# to execute this experiment run:
+# python train.py experiment=example
+
+defaults:
+  - override /paths: ivinstruct
+  - override /data: ivinstruct
+  - override /model: LSTP_instructblip_IV
+  - override /callbacks: default
+  - override /trainer: ddp
+  # - override /logger: wandb
+  - override /logger: tensorboard
+
+# all parameters below will be merged with parameters from default configurations set above
+# this allows you to overwrite only specified parameters
+
+tags: ["LSTP", "ivinstruct", "vicuna7b", "instructblip"]
+
+seed: 43
+
+checkpoint_path: logs/videoinstruct/train/runs/2024-01-24/checkpoints/sampler.ckpt
+
+callbacks:
+  model_checkpoint:
+    save_top_k: 2
+    # every_n_train_steps: 4000
+
+trainer:
+  min_epochs: 1
+  max_epochs: 3
+  devices: 4
+  num_nodes: 2
+  precision: bf16
+  accumulate_grad_batches: 8
+  # devices: [4,5,6,7]
+  # gradient_clip_val: 0.5
+
+model:
+  model_name_or_path: "ckpts/instructblip-vicuna-7b"
+  optimizer:
+    lr: 0.00005
+
+data:
+  processor_name: "ckpts/instructblip-vicuna-7b"
+  batch_size: 2
+  nframe: 4
+
+# logger:
+#   wandb:
+#     tags: ${tags}
+#     group: "LSTP_instructblipvicuna7b_ivinstruct"
+#   aim:
+#     experiment: "LSTP_instructblipvicuna7b_ivinstruct"

@@ -1,0 +1,19 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - data: videoinstruct # choose datamodule with `test_dataloader()` for evaluation
+  - model: LSTP_TG_blip2 # instructblip clip
+  - logger: null
+  - trainer: gpu
+  - paths: videoinstruct
+  - extras: default
+  - hydra: default
+  - experiment: null
+
+task_name: "eval"
+
+tags: ["LSTP", "videoinstruct", "flant5xl", "blip2", "eval"]
+
+# passing checkpoint path is necessary for evaluation
+ckpt_path: logs/videoinstruct/train/runs/2024-01-24/checkpoints/sampler.ckpt

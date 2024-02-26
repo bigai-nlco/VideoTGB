@@ -1,0 +1,49 @@
+_target_: src.models.LSTP_Blip2_IV_module.LSTPModule
+
+model_name_or_path: "ckpts/blip2-flan-t5-xl"
+# model_name_or_path: "ckpts/instructblip-vicuna-7b"
+# sampler_name_or_path: "ckpts/bert-base-uncased"
+sampler_name_or_path: "ckpts/sampler/sampler.pth"
+of_extractor_name_or_path: "ckpts/raft/raft-sintel.pth"
+
+temperature: 1.0
+
+# optimizer:
+#   _target_: torch.optim.Adam
+#   _partial_: true
+#   lr: 0.00001
+#   weight_decay: 0.05
+
+optimizer:
+  _target_: torch.optim.AdamW
+  _partial_: True
+  lr: 0.00001
+  eps: 0.00000001
+  betas: [0.9, 0.98]
+
+# scheduler:
+#   _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+#   _partial_: true
+#   mode: min
+#   factor: 0.8
+#   patience: 10
+
+# scheduler: plateau
+# scheduler_params:
+#   mode: min
+#   factor: 0.8
+#   patience: 10
+
+scheduler: cosine
+scheduler_params:
+  warmup_steps: 0.05
+
+generate_configs:
+  length_penalty: 1 
+  repetition_penalty: 1.0
+  num_beams: 1
+  min_length: 1
+  max_length: 250
+  top_p: 0.9
+  temperature: 1.0
+  do_sample: True

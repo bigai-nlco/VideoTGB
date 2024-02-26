@@ -1,0 +1,52 @@
+# @package _global_
+
+# to execute this experiment run:
+# python train.py experiment=example
+
+defaults:
+  - override /data: ivinstruct
+  - override /paths: ivinstruct
+  - override /model: LSTP_blip2_IV
+  - override /callbacks: default
+  - override /trainer: ddp
+  # - override /logger: wandb
+  - override /logger: tensorboard
+
+# all parameters below will be merged with parameters from default configurations set above
+# this allows you to overwrite only specified parameters
+
+tags: ["LSTP", "ivinstruct", "flant5xl", "blip2"]
+
+seed: 43
+
+checkpoint_path: logs/videoinstruct/train/runs/2024-01-24/checkpoints/sampler.ckpt
+
+callbacks:
+  model_checkpoint:
+    save_top_k: 1
+    # every_n_train_steps: 4000
+
+trainer:
+  min_epochs: 1
+  max_epochs: 3
+  devices: 4
+  # devices: [0,1,2,3]
+  # gradient_clip_val: 0.5
+  # precision: bf16
+
+model:
+  model_name_or_path: "ckpts/blip2-flan-t5-xl"
+  optimizer:
+    lr: 0.00005
+
+data:
+  processor_name: "ckpts/blip2-flan-t5-xl"
+  batch_size: 4
+  nframe: 4
+
+# logger:
+#   wandb:
+#     tags: ${tags}
+#     group: "LSTP_blip2flant5xl_ivinstruct"
+#   aim:
+#     experiment: "LSTP_blip2flant5xl_ivinstruct"

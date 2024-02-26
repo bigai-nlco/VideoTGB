@@ -1,0 +1,27 @@
+# @package _global_
+
+# to execute this experiment run:
+# python train.py experiment=example
+
+defaults:
+  - override /paths: ivinstruct
+  - override /data: ivinstruct
+  - override /model: LSTP_instructblip_IV
+  - override /trainer: gpu
+
+# all parameters below will be merged with parameters from default configurations set above
+# this allows you to overwrite only specified parameters
+
+tags: ["LSTP", "ivinstruct", "vicuna7b", "instructblip", "eval"]
+
+seed: 43
+
+ckpt_path: logs/videoinstruct/train/runs/2024-02-04/checkpoints/epoch_000.ckpt
+
+model:
+  model_name_or_path: "ckpts/instructblip-vicuna-7b"
+
+data:
+  processor_name: "ckpts/instructblip-vicuna-7b"
+  batch_size: 8
+  nframe: 4

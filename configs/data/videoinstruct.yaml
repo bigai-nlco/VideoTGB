@@ -1,0 +1,12 @@
+_target_: src.data.videoinstruct_datamodule.VIDEOINSTRUCTDataModule
+text_dir: ${paths.text_dir}
+video_dir: ${paths.video_dir}
+of_dir: ${paths.of_dir}
+nframe: 4
+processor_name: ckpts/instructblip-flan-t5-xl
+# processor_name: ckpts/instructblip-vicuna-7b
+sampler_processor_name: ckpts/bert-base-uncased
+target_size: 224
+batch_size: 8
+num_workers: 0
+pin_memory: False

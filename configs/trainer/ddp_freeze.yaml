@@ -1,0 +1,12 @@
+defaults:
+  - default
+
+strategy:
+  _target_: lightning.pytorch.strategies.DDPStrategy
+  find_unused_parameters: True
+  process_group_backend: gloo
+
+accelerator: gpu
+devices: 4
+num_nodes: 1
+# sync_batchnorm: True
