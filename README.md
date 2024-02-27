@@ -12,7 +12,7 @@
 <a href="https://huggingface.co/docs/transformers/index/"><img alt="Lightning" src="https://img.shields.io/badge/-Transformers-ffd21e?logo=huggingface&logoColor=white"></a>
 <a href="https://hydra.cc/"><img alt="Config: Hydra" src="https://img.shields.io/badge/Config-Hydra-89b8cd"></a><br>
 
-[![Paper](http://img.shields.io/badge/paper-arxiv.2402.16050-B31B1B.svg)](https://www.nature.com/articles/nature14539)
+[![Paper](http://img.shields.io/badge/paper-arxiv.2402.16050-B31B1B.svg)](https://arxiv.org/abs/2402.16050)
 
 <!-- [![Conference](http://img.shields.io/badge/AnyConference-year-4b44ce.svg)](https://xxx) -->
 
