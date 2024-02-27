@@ -20,7 +20,7 @@
 
 ## Updates
 
-- (2024.02.27) Paper Release, check it on [Arxiv]((https://arxiv.org/pdf/2402.16050.pdf)). 
+- (2024.02.27) Paper Release, check it on [Arxiv](https://arxiv.org/pdf/2402.16050.pdf). 
 - (2024.02.26) Initial Release (´▽`ʃ♡ƪ) 
 
 ## Overview
