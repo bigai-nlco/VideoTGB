@@ -170,5 +170,20 @@ python -m demo.demo
 ## Acknowledgement
 
 - Data: [Video-ChatGPT](https://github.com/mbzuai-oryx/Video-ChatGPT), [LLaVA](https://github.com/haotian-liu/LLaVA/blob/main/docs/Data.md)
+- Preprocess: [Video Features](https://github.com/v-iashin/video_features)
 - Code: [LAVIS/instructblip](https://github.com/salesforce/LAVIS/tree/main/projects/instructblip), [lightning-hydra-template](https://github.com/ashleve/lightning-hydra-template)
 - Demo: [LLaVA](https://github.com/haotian-liu/LLaVA), [Video-LLaVA](https://github.com/PKU-YuanGroup/Video-LLaVA)
+
+
+## Citation
+
+```
+@misc{wang2024lstp,
+    title={LSTP: Language-guided Spatial-Temporal Prompt Learning for Long-form Video-Text Understanding},
+    author={Yuxuan Wang and Yueqian Wang and Pengfei Wu and Jianxin Liang and Dongyan Zhao and Zilong Zheng},
+    year={2024},
+    eprint={2402.16050},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}
+```
