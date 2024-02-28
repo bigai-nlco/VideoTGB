@@ -132,6 +132,8 @@ def rouge_n(gold, pred, ignore=[',', '.']):
     if type(gold) is list:
         rouges = []
         for g, p in zip(gold, pred):
+            g = g.split()
+            p = p.split()
             rouge_all = 0
             hit_n = 0
             if ignore is None:
@@ -155,6 +157,8 @@ def rouge_n(gold, pred, ignore=[',', '.']):
         return rouges  
     
     else:
+        gold = gold.split()
+        pred = pred.split()
         hit_n = 0
         if ignore is None:
             for token in gold:
