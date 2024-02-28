@@ -75,7 +75,7 @@ sbatch scripts/videoinstruct_vicuna_train.slurm # instructblip-vicuna-7b + video
 
 For those with limited GPU resources, we also provide the pipeline to shorten the training procudure
 ```bash
-# step 1: generate the pseudal labels from the base-model
+# step 1: generate the pseudal labels from the base-model, and extract the optical flow in advance
 
 # step 2: train the temporal sampler
 python src/train.py experiment=LSTP_TG_blip2flant5xl_videoinstruct
