@@ -12,8 +12,7 @@
 <a href="https://hydra.cc/"><img alt="Config: Hydra" src="https://img.shields.io/badge/Config-Hydra-89b8cd"></a><br>
 
 [![Paper](http://img.shields.io/badge/paper-arxiv.2402.16050-B31B1B.svg)](https://arxiv.org/abs/2402.16050)
-
-<!-- [![Conference](http://img.shields.io/badge/AnyConference-year-4b44ce.svg)](https://xxx) -->
+[![Conference](http://img.shields.io/badge/EMNLP-2024-4b44ce.svg)](https://2024.emnlp.org/)
 
 </div>
 
