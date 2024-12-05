@@ -64,8 +64,8 @@ Train model
 
 ```bash
 # run on local
-python src/train.py experiment=VideoTGB_SF_blip2flant5xl_videoinstruct # blip2-flan-t5-xl + video-instruct
-python src/train.py experiment=VideoTGB_SF_instructblipvicuna7b_videoinstruct # instructblip-vicuna-7b + video-instruct
+python src/train.py experiment=LSTP_SF_blip2flant5xl_videoinstruct # blip2-flan-t5-xl + video-instruct
+python src/train.py experiment=LSTP_SF_instructblipvicuna7b_videoinstruct # instructblip-vicuna-7b + video-instruct
 
 # run on cluster
 sbatch scripts/videoinstruct_train.slurm # blip2-flan-t5-xl + video-instruct
@@ -77,13 +77,13 @@ For those with limited GPU resources, we also provide the pipeline to shorten th
 # step 1: generate the pseudo labels from the base-model, and extract the optical flow in advance
 
 # step 2: train the temporal sampler
-python src/train.py experiment=VideoTGB_TG_blip2flant5xl_videoinstruct
+python src/train.py experiment=LSTP_TG_blip2flant5xl_videoinstruct
 
 # step 3: train VideoTGB with fixed temporal sampler
-python src/train.py experiment=VideoTGB_blip2flant5xl_ivinstruct # blip2-flan-t5-xl + video-instruct + image-instruct
-python src/train.py experiment=VideoTGB_instructblipvicuna7b_ivinstruct # instructblip-vicuna-7b + video-instruct + image-instruct
-python src/train.py experiment=VideoTGB_blip2flant5xl_ivtinstruct # blip2-flan-t5-xl (LoRA) + video-instruct + image-instruct + text-instruct
-python src/train.py experiment=VideoTGB_instructblipvicuna7b_ivtinstruct # instructblip-vicuna-7b (LoRA) + video-instruct + image-instruct + text-instruct
+python src/train.py experiment=LSTP_blip2flant5xl_ivinstruct # blip2-flan-t5-xl + video-instruct + image-instruct
+python src/train.py experiment=LSTP_instructblipvicuna7b_ivinstruct # instructblip-vicuna-7b + video-instruct + image-instruct
+python src/train.py experiment=LSTP_blip2flant5xl_ivtinstruct # blip2-flan-t5-xl (LoRA) + video-instruct + image-instruct + text-instruct
+python src/train.py experiment=LSTP_instructblipvicuna7b_ivtinstruct # instructblip-vicuna-7b (LoRA) + video-instruct + image-instruct + text-instruct
 ```
 
 Evaluate model
@@ -158,7 +158,8 @@ Model Zoo
 
 |Model      |Base Model      |  Training Data | Strategy for LLM | Download Link       | 
 | ------------- | ------------- | -------- | -------- | ------------- |
-| VideoTGB-7B| InstructBlip-Vicuna-7B | [Video-ChatGPT](https://github.com/mbzuai-oryx/Video-ChatGPT), [LLaVA](https://github.com/haotian-liu/LLaVA/blob/main/docs/Data.md)     | fixed       | [Huggingface](https://huggingface.co/ColorfulAI/VideoTGB-Chat)        | 
+| LSTP-7B| InstructBlip-Vicuna-7B | [Video-ChatGPT](https://github.com/mbzuai-oryx/Video-ChatGPT), [LLaVA](https://github.com/haotian-liu/LLaVA/blob/main/docs/Data.md)     | fixed       | [Huggingface](https://huggingface.co/ColorfulAI/VideoTGB-Chat)        | 
+| LSTP-FlanT5xl | FlanT5-xl  | [Video-ChatGPT](https://github.com/mbzuai-oryx/Video-ChatGPT), [LLaVA](https://github.com/haotian-liu/LLaVA/blob/main/docs/Data.md)     | fixed       | [Huggingface](https://huggingface.co/ColorfulAI/VideoTGB-Chat)        | 
 
 ```bash
 python -m demo.demo
