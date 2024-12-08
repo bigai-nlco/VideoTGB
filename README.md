@@ -158,8 +158,8 @@ Model Zoo
 
 |Model      |Base Model      |  Training Data | Strategy for LLM | Download Link       | 
 | ------------- | ------------- | -------- | -------- | ------------- |
-| LSTP-7B| InstructBlip-Vicuna-7B | [Video-ChatGPT](https://github.com/mbzuai-oryx/Video-ChatGPT), [LLaVA](https://github.com/haotian-liu/LLaVA/blob/main/docs/Data.md)     | fixed       | [Huggingface](https://huggingface.co/ColorfulAI/VideoTGB-Chat)        | 
-| LSTP-FlanT5xl | FlanT5-xl  | [Video-ChatGPT](https://github.com/mbzuai-oryx/Video-ChatGPT), [LLaVA](https://github.com/haotian-liu/LLaVA/blob/main/docs/Data.md)     | fixed       | [Huggingface](https://huggingface.co/ColorfulAI/VideoTGB-Chat)        | 
+| LSTP-7B| InstructBlip-Vicuna-7B | [Video-ChatGPT](https://github.com/mbzuai-oryx/Video-ChatGPT), [LLaVA](https://github.com/haotian-liu/LLaVA/blob/main/docs/Data.md)     | fixed       | [Huggingface](https://huggingface.co/ColorfulAI/LSTP-Chat)        | 
+| LSTP-FlanT5xl | FlanT5-xl  | [Video-ChatGPT](https://github.com/mbzuai-oryx/Video-ChatGPT), [LLaVA](https://github.com/haotian-liu/LLaVA/blob/main/docs/Data.md)     | fixed       | [Huggingface](https://huggingface.co/ColorfulAI/LSTP-Chat)        | 
 
 ```bash
 python -m demo.demo
