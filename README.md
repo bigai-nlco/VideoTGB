@@ -26,7 +26,7 @@
 
 This is a chat agent based on our work **Efficient Temporal Extrapolation of Multimodal Large Language Models with Temporal Grounding Bridge for Long Video Understanding**. This work is finetuned on [video-instruction datasets](https://github.com/mbzuai-oryx/Video-ChatGPT/blob/main/data/README.md) and [image-instruction datasets](https://github.com/haotian-liu/LLaVA/blob/main/docs/Data.md).
 
-We have meticulously chosen two distinct architectural paradigms for our study: the encoder-decoder architecture, exemplified by [BLIP2-Flan-T5-xl](https://huggingface.co/Salesforce/blip2-flan-t5-xl), and the decoder-only architecture, represented by [InstructBLIP-Vicuna-7B](https://huggingface.co/Salesforce/instructblip-vicuna-7b). For further exploration, we also provide the code to tune the LLM with LoRA.
+We have meticulously chosen two distinct architectural paradigms for our study: the encoder-decoder architecture, exemplified by [BLIP2-Flan-T5-xl (original version)](https://huggingface.co/Salesforce/blip2-flan-t5-xl/tree/56fa1691779eaa22d603ca6ffa463f9adc05ac5f), and the decoder-only architecture, represented by [InstructBLIP-Vicuna-7B (original version)](https://huggingface.co/Salesforce/instructblip-vicuna-7b/tree/ef9d8b3bcb7a0422d7b33a8917e867944312ef22). For further exploration, we also provide the code to tune the LLM with LoRA.
 
 <img src='demo/assets/framework.png'>
 
