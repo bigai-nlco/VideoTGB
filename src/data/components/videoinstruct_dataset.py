@@ -5,6 +5,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 
 import numpy as np
 import torch
+import torch.nn.functional as F
 from torch.utils.data import Dataset
 from torch.nn.utils.rnn import pad_sequence
 from transformers import AutoTokenizer, AutoProcessor, InstructBlipProcessor, BlipImageProcessor
@@ -209,9 +210,10 @@ class VIDEOINSTRUCT(Dataset):
         min_val = np.min(x)
         return (max_range-min_range)/(max_val-min_val)*(x-max_val)+max_range
     @staticmethod
-    def normalize_flow(flow):
+    def normalize_flow(flow, target_size=224):
         # N, 2, H, W -> N, H, W, 2
         # flow_uv = np.transpose(flow, (0, 2, 3, 1))
+        flow = F.interpolate(flow, size=(target_size, target_size), mode='bilinear', align_corners=False)
         flow_uv = flow.transpose(0,2,3,1)
         u = flow_uv[:,:,:,0]
         v = flow_uv[:,:,:,1]
