@@ -76,8 +76,8 @@ class VIDEOINSTRUCT(Dataset):
         of_rgb = of_rgb.permute(1,0,2,3) # TCHW
         # of_length = of.size(0) + 2
         of_length = of.shape[0]
-        of = self.normalize_flow(of)
         of = torch.from_numpy(of)
+        of = self.normalize_flow(of)
 
         # pseudo_label
         start = int(self.pseudo_label[idx][0] / 31 * (of_length-1))
@@ -212,19 +212,18 @@ class VIDEOINSTRUCT(Dataset):
     @staticmethod
     def normalize_flow(flow, target_size=224):
         # N, 2, H, W -> N, H, W, 2
-        # flow_uv = np.transpose(flow, (0, 2, 3, 1))
         flow = F.interpolate(flow, size=(target_size, target_size), mode='bilinear', align_corners=False)
-        flow_uv = flow.transpose(0,2,3,1)
-        u = flow_uv[:,:,:,0]
-        v = flow_uv[:,:,:,1]
-        rad = np.sqrt(np.square(u) + np.square(v))
-        rad_max = np.max(rad)
+        flow_uv = flow.permute(0, 2, 3, 1)
+        u = flow_uv[..., 0]
+        v = flow_uv[..., 1]
+        rad = torch.sqrt(u ** 2 + v ** 2)
+        rad_max = torch.max(rad)
         epsilon = 1e-5
         u = u / (rad_max + epsilon)
         v = v / (rad_max + epsilon)
-        normalized_flow_uv = np.stack([u,v], axis=-1)
-        # normalized_flow =np.transpose(normalized_flow_uv, (0, 3, 1, 2))
-        normalized_flow = normalized_flow_uv.transpose(0, 3, 1, 2)
+        normalized_flow_uv = torch.stack([u, v], dim=-1)
+        normalized_flow = normalized_flow_uv.permute(0, 3, 1, 2)
+
         return normalized_flow
 
     def get_of(self, video_name, of_path):
