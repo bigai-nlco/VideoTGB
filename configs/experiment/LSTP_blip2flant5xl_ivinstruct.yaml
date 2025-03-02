@@ -19,7 +19,7 @@ tags: ["LSTP", "ivinstruct", "flant5xl", "blip2"]
 
 seed: 43
 
-checkpoint_path: logs/videoinstruct/train/runs/2024-01-24/checkpoints/sampler.ckpt
+checkpoint_path: ckpts/sampler.pth
 
 callbacks:
   model_checkpoint:
